@@ -24,9 +24,4 @@ namespace BetCalculator.BetTypes
             return new Combinations<T>(items, CombinationSize);
         }
     }
-
-    public record StrictPerms : Perms
-    {
-        public StrictPerms(int combinationSize) : base(combinationSize, false) {}
-    }
 }

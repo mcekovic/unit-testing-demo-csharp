@@ -124,9 +124,9 @@ namespace BetCalculator.Tests
         }
         
         [Fact]
-        public void TestStrictPermsFailsOnInterrelatedSelections()
+        public void TestPatentFailsOnInterrelatedSelections()
         {
-            var bet = new Bet { BetType = new StrictPerms(2), UnitStake = 1m, Legs = new List<BetLeg> {
+            var bet = new Bet { BetType = FullCover.Patent, UnitStake = 1m, Legs = new List<BetLeg> {
                 new () { Price = 2m, IrDescriptor = new IrDescriptor(111, 11, 1) },
                 new () { Price = 3m, IrDescriptor = new IrDescriptor(112, 11, 1) },
                 new () { Price = 4m, IrDescriptor = new IrDescriptor(211, 21, 2) }

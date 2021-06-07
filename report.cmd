@@ -1,0 +1,1 @@
+reportgenerator "-reports:BetCalculator.Tests\TestResults\*\coverage.cobertura.xml" "-targetdir:coveragereport" -reporttypes:Html

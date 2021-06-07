@@ -62,27 +62,6 @@ namespace BetCalculator.Interrelation
             public override int GetHashCode() => 31 * _selectionId1.GetHashCode() + _selectionId2.GetHashCode();
         }
 
-        public static IList<IrResult> GetInterrelations(IList<BetLeg> legs)
-        {
-            var results = new List<IrResult>();
-            var count = legs.Count;
-            for (var i = 0; i < count - 1; i++)
-            {
-                var desc1 = legs[i].IrDescriptor;
-                for (var j = i + 1; j < count; j++)
-                {
-                    var desc2 = legs[j].IrDescriptor;
-                    var result = AreInterrelated(desc1, desc2);
-                    if (result.IsInterrelated())
-                        results.Add(result);
-                }
-            }
-            var maxWinnersResult = IsMaxWinnersViolated(legs);
-            if (maxWinnersResult.IsInterrelated())
-                results.Add(maxWinnersResult);
-            return results;
-        }
-
         public static IrResult AreInterrelated(IrDescriptor desc1, IrDescriptor desc2)
         {
             if (Equals(desc1.SelectionId, desc2.SelectionId))
