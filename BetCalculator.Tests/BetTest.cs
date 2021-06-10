@@ -38,6 +38,7 @@ namespace BetCalculator.Tests
             var result = bet.Calculate();
 
             result.Should().HaveUnitCount(1m).And.HaveStake(10m).And.HaveMaxReturn(20m);
+            betTypeMock.Verify(betType => betType.Combinations(It.IsAny<IList<BetLeg>>()), Times.Exactly(1));
         }
 
         [Fact]
